@@ -66,26 +66,35 @@ export default function Agenda() {
     <div className="min-h-screen bg-gray-100 p-4">
       <h1 className="text-3xl mb-4">Agenda</h1>
       <div className="bg-white p-4 rounded shadow mb-4">
-        <input
-          type="text"
-          placeholder="ID do Paciente"
-          value={pacienteId}
-          onChange={(e) => setPacienteId(e.target.value)}
-          className="w-full p-2 mb-2 border"
-        />
-        <input
-          type="date"
-          value={data}
-          onChange={(e) => setData(e.target.value)}
-          className="w-full p-2 mb-2 border"
-        />
-        <input
-          type="time"
-          value={hora}
-          onChange={(e) => setHora(e.target.value)}
-          className="w-full p-2 mb-2 border"
-        />
-        <button onClick={addConsulta} className="bg-green-500 text-white p-2 rounded">Agendar Consulta</button>
+        <label className="block mb-2">
+          <span className="text-sm font-medium">Paciente</span>
+          <input
+            type="text"
+            placeholder="Selecione o paciente"
+            value={pacienteId}
+            onChange={(e) => setPacienteId(e.target.value)}
+            className="w-full p-2 mb-2 border rounded"
+          />
+        </label>
+        <label className="block mb-2">
+          <span className="text-sm font-medium">Data</span>
+          <input
+            type="date"
+            value={data}
+            onChange={(e) => setData(e.target.value)}
+            className="w-full p-2 mb-2 border rounded"
+          />
+        </label>
+        <label className="block mb-2">
+          <span className="text-sm font-medium">Horário</span>
+          <input
+            type="time"
+            value={hora}
+            onChange={(e) => setHora(e.target.value)}
+            className="w-full p-2 mb-2 border rounded"
+          />
+        </label>
+        <button onClick={addConsulta} className="bg-green-500 text-white p-2 rounded w-full">Agendar Consulta</button>
       </div>
       <ul>
         {consultas.map((c) => (

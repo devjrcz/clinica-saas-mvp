@@ -40,32 +40,41 @@ export default function Signup() {
         <h2 className="text-2xl font-bold mb-4 text-center">Criar Conta</h2>
         {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
         
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="w-full p-3 mb-4 border rounded-lg"
-          required
-        />
+        <label className="block mb-4">
+          <span className="text-sm font-medium">Email</span>
+          <input
+            type="email"
+            placeholder="seu@email.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full p-3 border rounded-lg"
+            required
+          />
+        </label>
         
-        <input
-          type="password"
-          placeholder="Senha (mínimo 6 caracteres)"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="w-full p-3 mb-4 border rounded-lg"
-          required
-        />
+        <label className="block mb-4">
+          <span className="text-sm font-medium">Senha</span>
+          <input
+            type="password"
+            placeholder="Mínimo 6 caracteres"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full p-3 border rounded-lg"
+            required
+          />
+        </label>
         
-        <input
-          type="password"
-          placeholder="Confirmar Senha"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          className="w-full p-3 mb-4 border rounded-lg"
-          required
-        />
+        <label className="block mb-4">
+          <span className="text-sm font-medium">Confirmar Senha</span>
+          <input
+            type="password"
+            placeholder="Confirme sua senha"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            className="w-full p-3 border rounded-lg"
+            required
+          />
+        </label>
         
         <button type="submit" className="w-full bg-green-500 text-white p-3 rounded-lg font-medium">
           Criar Conta

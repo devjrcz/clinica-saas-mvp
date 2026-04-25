@@ -57,27 +57,36 @@ export default function Pacientes() {
     <div className="min-h-screen bg-gray-100 p-4">
       <h1 className="text-3xl mb-4">Pacientes</h1>
       <div className="bg-white p-4 rounded shadow mb-4">
-        <input
-          type="text"
-          placeholder="Nome"
-          value={nome}
-          onChange={(e) => setNome(e.target.value)}
-          className="w-full p-2 mb-2 border"
-        />
-        <input
-          type="text"
-          placeholder="Telefone"
-          value={telefone}
-          onChange={(e) => setTelefone(e.target.value)}
-          className="w-full p-2 mb-2 border"
-        />
-        <textarea
-          placeholder="Observações"
-          value={observacoes}
-          onChange={(e) => setObservacoes(e.target.value)}
-          className="w-full p-2 mb-2 border"
-        />
-        <button onClick={addPaciente} className="bg-green-500 text-white p-2 rounded">Adicionar Paciente</button>
+        <label className="block mb-2">
+          <span className="text-sm font-medium">Nome</span>
+          <input
+            type="text"
+            placeholder="Nome do paciente"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+            className="w-full p-2 mb-2 border rounded"
+          />
+        </label>
+        <label className="block mb-2">
+          <span className="text-sm font-medium">Telefone</span>
+          <input
+            type="text"
+            placeholder="Telefone com DDD"
+            value={telefone}
+            onChange={(e) => setTelefone(e.target.value)}
+            className="w-full p-2 mb-2 border rounded"
+          />
+        </label>
+        <label className="block mb-2">
+          <span className="text-sm font-medium">Observações</span>
+          <textarea
+            placeholder="Observações sobre o paciente"
+            value={observacoes}
+            onChange={(e) => setObservacoes(e.target.value)}
+            className="w-full p-2 mb-2 border rounded"
+          />
+        </label>
+        <button onClick={addPaciente} className="bg-green-500 text-white p-2 rounded w-full">Adicionar Paciente</button>
       </div>
       <ul>
         {pacientes.map((p) => (
