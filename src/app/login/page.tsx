@@ -3,18 +3,19 @@
 import { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
+import { useRouter } from 'next/navigation';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const router = useRouter();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      // Redirect to dashboard
-      window.location.href = '/dashboard';
+      router.push('/dashboard');
     } catch (err) {
       setError('Erro no login');
     }
@@ -42,6 +43,10 @@ export default function Login() {
           required
         />
         <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded">Entrar</button>
+        
+        <p className="mt-4 text-center text-sm">
+          Não tem conta? <a href="/signup" className="text-blue-500">Criar conta</a>
+        </p>
       </form>
     </div>
   );
