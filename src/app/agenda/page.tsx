@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { collection, addDoc, getDocs, updateDoc } from 'firebase/firestore';
 import { db, auth } from '@/lib/firebase';
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, User } from 'firebase/auth';
 
 interface Consulta {
   id: string;
@@ -18,7 +18,7 @@ export default function Agenda() {
   const [pacienteId, setPacienteId] = useState('');
   const [data, setData] = useState('');
   const [hora, setHora] = useState('');
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
